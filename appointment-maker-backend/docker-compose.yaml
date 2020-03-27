@@ -5,9 +5,11 @@ services:
     image: "percona:ps-8.0.16-7"
     ports:
       - "3306:3306"
+    privileged: true
     environment:
       MYSQL_ROOT_PASSWORD: pwd
       MYSQL_DATABASE: appointmentmaker
       MYSQL_USER: appointmentmaker
-      MYSQL_PASSWORD: 123456
+      MYSQL_PASSWORD: KkN7{/uvw}?CKi).hDY8YSM0}YMC3QT
+
 
