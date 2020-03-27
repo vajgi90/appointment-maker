@@ -1,1 +1,1 @@
-# appointment-maker
+# eta-meeting-organizer
