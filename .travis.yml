@@ -10,7 +10,7 @@ jobs:
       - psql -c "alter user appointmentmaker with encrypted password 'KkN7{/uvw}?CKi).hDY8YSM0}YMC3QT';" -U postgres
       - psql -c "create database appointmentmaker;" -U postgres
       - psql -c "grant all privileges on database appointmentmaker to appointmentmaker;" -U postgres
-      - "cd appointmentmaker"
+      - "cd appointment-maker-backend"
       script:
       - "./mvnw clean test -Dspring.profiles.active=travis"
     - stage: test
@@ -21,7 +21,7 @@ jobs:
         directories:
           - "node_modules"
       before_script:
-      - "cd appointmentmaker"
+      - "cd appointment-maker-frontend"
       - "npm install"
       script:
       - "npm run lint"
@@ -33,7 +33,7 @@ jobs:
         directories:
           - "node_modules"
       before_script:
-      - "cd appointmentmaker"
+      - "cd appointment-maker-frontend"
       - "npm install"
       script:
       - "npm run build"
