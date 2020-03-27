@@ -1,4 +1,4 @@
-# Eta Meeting Organizer Frontend
+# Appointment Maker Frontend
 
 ## Project Structure
 
