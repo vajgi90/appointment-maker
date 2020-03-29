@@ -31,9 +31,9 @@ public class Company {
     @Column
     private String representative;
 
-    @OneToMany(value = CascadeType.ALL, mappedBy = "companies")
+  /*  @OneToMany(value = CascadeType.ALL, mappedBy = "companies")
     private List<CompanyService> companyServices;
 
     @OneToMany(value = CascadeType.ALL, mappedBy = "companies")
-    private List<Client> clients;
+    private List<Client> clients;*/
 }
