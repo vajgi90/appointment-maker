@@ -1,4 +1,10 @@
 package hu.flowacademy.appointmentmaker.Repository;
 
-public interface CompanyRepository {
+import hu.flowacademy.appointmentmaker.Model.Company;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface CompanyRepository extends JpaRepository<Company, Long> {
+
 }
