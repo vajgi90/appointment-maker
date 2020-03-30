@@ -19,19 +19,11 @@ public class CompanyController {
         return new ResponseEntity<>(companyService.createCompany(company), HttpStatus.OK);
     }
 
-    /*
-    When the service start to use individual exceptions then we gonna use this findOne.
     @GetMapping("/{id}")
     public ResponseEntity<Company> findOne(@PathVariable Long id) {
-        return companyService.findOne(id)
+        return companyService.fondOneCompany(id)
                 .map(ResponseEntity::ok)
                 .orElseGet(() -> ResponseEntity.notFound().build());
-    }
-     */
-
-    @GetMapping("/{id}")
-    public ResponseEntity<Company> findOne(@PathVariable Long id) {
-       return new ResponseEntity<>(companyService.findOneCompany(id), HttpStatus.FOUND);
     }
 
     @PutMapping("/{id}")

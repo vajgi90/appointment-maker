@@ -2,10 +2,12 @@ package hu.flowacademy.appointmentmaker.Service;
 
 import hu.flowacademy.appointmentmaker.Model.Company;
 import hu.flowacademy.appointmentmaker.Repository.CompanyRepository;
+import hu.flowacademy.appointmentmaker.config.exception.CompanyNotFoundException;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.Optional;
 
 
 @Service
@@ -18,17 +20,11 @@ public class CompanyService {
     public Company createCompany(Company company) {
         return companyRepository.save(company);
     }
-    /*
-    Change the fondOneCompany to this code when the individual exceptions are going to be done.
 
      public Optional<Company> fondOneCompany(Long id) {
         return Optional.of(companyRepository.findById(id))
                 .orElseThrow(() -> new CompanyNotFoundException(id));
-     }*/
-
-    public Company findOneCompany(Long id) {
-        return companyRepository.findById(id).get();
-    }
+     }
 
     public Company updateCompanyDetails(Long id, Company company) {
         company.setId(id);
