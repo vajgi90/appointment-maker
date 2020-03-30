@@ -2,7 +2,7 @@ package hu.flowacademy.appointmentmaker.Service;
 
 import hu.flowacademy.appointmentmaker.Model.Company;
 import hu.flowacademy.appointmentmaker.Repository.CompanyRepository;
-import hu.flowacademy.appointmentmaker.config.exception.CompanyNotFoundException;
+import hu.flowacademy.appointmentmaker.exception.CompanyNotFoundException;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 

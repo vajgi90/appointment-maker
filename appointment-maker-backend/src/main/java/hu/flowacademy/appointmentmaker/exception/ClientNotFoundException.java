@@ -1,4 +1,4 @@
-package hu.flowacademy.appointmentmaker.config.exception;
+package hu.flowacademy.appointmentmaker.exception;
 
 public class ClientNotFoundException extends NotFoundException {
 
