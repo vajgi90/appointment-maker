@@ -1,6 +1,5 @@
 package hu.flowacademy.appointmentmaker.Model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -10,31 +9,27 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "clients")
+@Table(name = "appointments")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Client {
+public class Appointment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column
-    private String name;
-
-    @Transient
-    @JsonIgnore
-    private String password;
+    private Long startingTime;
 
     @Column
-    private Integer phoneNumber;
+    private Long endingTime;
 
-    @Column(unique = true, length = 100)
-    private String email;
+    @ManyToMany
+    private List<ProvidedService> providedServices;
 
-    @ManyToOne
-    private Company company;
+    @ManyToMany
+    private List<Client> clients;
 
 }
