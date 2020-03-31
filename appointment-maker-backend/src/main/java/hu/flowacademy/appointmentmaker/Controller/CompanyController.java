@@ -21,7 +21,7 @@ public class CompanyController {
 
     @GetMapping("/{id}")
     public ResponseEntity<Company> findOne(@PathVariable Long id) {
-        return companyService.fondOneCompany(id)
+        return companyService.findOneCompany(id)
                 .map(ResponseEntity::ok)
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
