@@ -1,8 +1,8 @@
 package hu.flowacademy.appointmentmaker.Service;
 
-import hu.flowacademy.appointmentmaker.Model.Company;
-import hu.flowacademy.appointmentmaker.Repository.CompanyRepository;
-import hu.flowacademy.appointmentmaker.exception.CompanyNotFoundException;
+import hu.flowacademy.appointmentmaker.Model.Client;
+import hu.flowacademy.appointmentmaker.Repository.ClientRepository;
+import hu.flowacademy.appointmentmaker.exception.ClientNotFoundException;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -13,25 +13,27 @@ import java.util.Optional;
 @Service
 @AllArgsConstructor
 @Transactional
-public class CompanyService {
+public class ClientService {
 
-    private CompanyRepository companyRepository;
+    private ClientRepository clientRepository;
 
-    public Company createCompany(Company company) {
-        return companyRepository.save(company);
+    public Client createClient(Client client) {
+        return clientRepository.save(client);
     }
 
-     public Optional<Company> fondOneCompany(Long id) {
-        return Optional.of(companyRepository.findById(id))
-                .orElseThrow(() -> new CompanyNotFoundException(id));
-     }
-
-    public Company updateCompanyDetails(Long id, Company company) {
-        company.setId(id);
-        return companyRepository.save(company);
+    public Optional<Client> findOneClient(Long id) {
+        return Optional.of(clientRepository.findById(id))
+                .orElseThrow(() -> new ClientNotFoundException(id));
     }
 
-    public void deleteCompany(Long id) {
-        companyRepository.deleteById(id);
+    public Client updateClientDetails(Long id, Client client) {
+        client.setId(id);
+        return clientRepository.save(client);
     }
+
+    public void deleteClient(Long id) {
+        clientRepository.deleteById(id);
+    }
+
+
 }
