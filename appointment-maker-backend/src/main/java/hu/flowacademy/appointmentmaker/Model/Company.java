@@ -1,6 +1,5 @@
 package hu.flowacademy.appointmentmaker.Model;
 
-import ch.qos.logback.core.net.server.Client;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -33,10 +32,11 @@ public class Company {
     @Column
     private String representative;
 
+
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "company")
     private List<ProvidedService> providedServices;
 
-    /*@OneToMany(cascade = CascadeType.ALL, mappedBy = "companies")
-    private List<Client> clients;*/
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "company")
+    private List<Client> clients;
 
 }

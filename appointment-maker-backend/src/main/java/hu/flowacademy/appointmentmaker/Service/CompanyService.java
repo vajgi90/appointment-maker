@@ -21,7 +21,7 @@ public class CompanyService {
         return companyRepository.save(company);
     }
 
-     public Optional<Company> fondOneCompany(Long id) {
+     public Optional<Company> findOneCompany(Long id) {
         return Optional.of(companyRepository.findById(id))
                 .orElseThrow(() -> new CompanyNotFoundException(id));
      }

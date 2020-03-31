@@ -1,38 +1,38 @@
 package hu.flowacademy.appointmentmaker.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.List;
-
 
 @Entity
-@Table(name = "services")
+@Table(name = "clients")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class ProvidedService {
+public class Client {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column
     private String name;
 
-    @Column
-    private String description;
+    @Transient
+    @JsonIgnore
+    private String password;
 
     @Column
-    private Long serviceTime ;
+    private Integer phoneNumber;
+
+    @Column(unique = true, length = 100)
+    private String email;
 
     @ManyToOne
     private Company company;
-
-    @ManyToMany
-    private List<Client> clients;
 }
