@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "companies")
@@ -31,9 +32,9 @@ public class Company {
     @Column
     private String representative;
 
-  /*  @OneToMany(value = CascadeType.ALL, mappedBy = "companies")
+  /*  @OneToMany(cascade = CascadeType.ALL, mappedBy = "companies")
     private List<CompanyService> companyServices;
-
-    @OneToMany(value = CascadeType.ALL, mappedBy = "companies")
-    private List<Client> clients;*/
+*/
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "companies")
+    private List<Client> clients;
 }
