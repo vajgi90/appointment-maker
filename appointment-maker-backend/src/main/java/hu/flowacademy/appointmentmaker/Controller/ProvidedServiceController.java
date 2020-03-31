@@ -1,10 +1,7 @@
 package hu.flowacademy.appointmentmaker.Controller;
 
-import hu.flowacademy.appointmentmaker.Model.Company;
 import hu.flowacademy.appointmentmaker.Model.ProvidedService;
-import hu.flowacademy.appointmentmaker.Service.CompanyService;
 import hu.flowacademy.appointmentmaker.Service.ProvidedSService;
-import javafx.concurrent.Service;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
