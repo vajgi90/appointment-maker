@@ -16,20 +16,19 @@ public class ProvidedServiceController {
 
     @PostMapping
     public ResponseEntity<ProvidedService> createService(@RequestBody ProvidedService providedService) {
-        return new ResponseEntity<>(providedSService.createService(providedService), HttpStatus.OK);
+        return new ResponseEntity<>(providedSService.createService(providedService), HttpStatus.CREATED);
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<ProvidedService> findOne(@PathVariable Long id) {
-        return providedSService.findOneService(id)
-                .map(ResponseEntity::ok)
-                .orElseGet(() -> ResponseEntity.notFound().build());
+        providedSService.findOneService(id);
+        return ResponseEntity.ok().build();
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<ProvidedService> updateService (@PathVariable Long id, @RequestBody ProvidedService providedService){
         providedSService.updateServiceDetails(id,providedService);
-        return ResponseEntity.accepted().build();
+        return ResponseEntity.ok().build();
     }
 
     @DeleteMapping("/{id}")
