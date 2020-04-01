@@ -28,7 +28,7 @@ public class ProvidedService {
     private String description;
 
     @Column
-    private Long serviceTime ;
+    private Long serviceLength ;
 
     @ManyToOne
     private Company company;

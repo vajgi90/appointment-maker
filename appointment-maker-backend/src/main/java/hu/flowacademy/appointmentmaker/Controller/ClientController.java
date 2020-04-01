@@ -22,14 +22,12 @@ public class ClientController {
 
     @GetMapping("/{id}")
     public ResponseEntity<Client> findOne(@PathVariable Long id) {
-        clientService.findOneClient(id);
-        return ResponseEntity.ok().build();
+        return new ResponseEntity(clientService.findOneClient(id), HttpStatus.OK);
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<Client> updateCompany (@PathVariable Long id, @RequestBody Client company){
-        clientService.updateClientDetails(id, company);
-        return ResponseEntity.ok().build();
+        return new ResponseEntity(clientService.updateClientDetails(id, company), HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
