@@ -21,14 +21,12 @@ public class ProvidedServiceController {
 
     @GetMapping("/{id}")
     public ResponseEntity<ProvidedService> findOne(@PathVariable Long id) {
-        providedSService.findOneService(id);
-        return ResponseEntity.ok().build();
+        return new ResponseEntity(providedSService.findOneService(id), HttpStatus.CREATED);
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<ProvidedService> updateService (@PathVariable Long id, @RequestBody ProvidedService providedService){
-        providedSService.updateServiceDetails(id,providedService);
-        return ResponseEntity.ok().build();
+        return new ResponseEntity<>(providedSService.updateServiceDetails(id, providedService), HttpStatus.CREATED);
     }
 
     @DeleteMapping("/{id}")

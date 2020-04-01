@@ -21,14 +21,12 @@ public class CompanyController {
 
     @GetMapping("/{id}")
     public ResponseEntity<Company> findOne(@PathVariable Long id) {
-        companyService.findOneCompany(id);
-        return ResponseEntity.ok().build();
+        return new ResponseEntity(companyService.findOneCompany(id), HttpStatus.OK);
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<Company> updateCompany (@PathVariable Long id, @RequestBody Company company){
-        companyService.updateCompanyDetails(id, company);
-        return ResponseEntity.ok().build();
+        return new ResponseEntity(companyService.updateCompanyDetails(id, company), HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
