@@ -1,9 +1,7 @@
 package hu.flowacademy.appointmentmaker.Controller;
 
 import hu.flowacademy.appointmentmaker.Model.Client;
-import hu.flowacademy.appointmentmaker.Model.Company;
 import hu.flowacademy.appointmentmaker.Service.ClientService;
-import hu.flowacademy.appointmentmaker.Service.CompanyService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,20 +17,17 @@ public class ClientController {
 
     @PostMapping
     public ResponseEntity<Client> createCompany(@RequestBody Client company) {
-        return new ResponseEntity<>(clientService.createClient(company), HttpStatus.OK);
+        return new ResponseEntity<>(clientService.createClient(company), HttpStatus.CREATED);
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<Client> findOne(@PathVariable Long id) {
-        return clientService.findOneClient(id)
-                .map(ResponseEntity::ok)
-                .orElseGet(() -> ResponseEntity.notFound().build());
+        return new ResponseEntity(clientService.findOneClient(id), HttpStatus.OK);
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<Client> updateCompany (@PathVariable Long id, @RequestBody Client company){
-        clientService.updateClientDetails(id, company);
-        return ResponseEntity.accepted().build();
+        return new ResponseEntity(clientService.updateClientDetails(id, company), HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")

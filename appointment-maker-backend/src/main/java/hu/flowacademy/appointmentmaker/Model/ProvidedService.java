@@ -8,35 +8,31 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.util.List;
 
+
 @Entity
-@Table(name = "companies")
+@Table(name = "services")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Company {
+public class ProvidedService {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @Column
     private String name;
 
     @Column
-    private String address;
+    private String description;
 
     @Column
-    private Integer phoneNumber ;
+    private Long serviceLength;
 
-    @Column
-    private String representative;
+    @ManyToOne
+    private Company company;
 
-
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "company")
-    private List<ProvidedService> providedServices;
-
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "company")
+    @ManyToMany
     private List<Client> clients;
-
 }

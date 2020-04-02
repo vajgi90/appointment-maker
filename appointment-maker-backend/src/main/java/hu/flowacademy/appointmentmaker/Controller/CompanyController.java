@@ -16,20 +16,17 @@ public class CompanyController {
 
     @PostMapping
     public ResponseEntity<Company> createCompany(@RequestBody Company company) {
-        return new ResponseEntity<>(companyService.createCompany(company), HttpStatus.OK);
+        return new ResponseEntity<>(companyService.createCompany(company), HttpStatus.CREATED);
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<Company> findOne(@PathVariable Long id) {
-        return companyService.findOneCompany(id)
-                .map(ResponseEntity::ok)
-                .orElseGet(() -> ResponseEntity.notFound().build());
+        return new ResponseEntity(companyService.findOneCompany(id), HttpStatus.OK);
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<Company> updateCompany (@PathVariable Long id, @RequestBody Company company){
-        companyService.updateCompanyDetails(id, company);
-        return ResponseEntity.accepted().build();
+        return new ResponseEntity(companyService.updateCompanyDetails(id, company), HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")

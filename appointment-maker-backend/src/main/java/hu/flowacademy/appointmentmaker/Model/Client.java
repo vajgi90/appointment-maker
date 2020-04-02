@@ -34,5 +34,5 @@ public class Client {
     private String email;
 
     @ManyToOne
-    private Company companies;
+    private Company company;
 }
